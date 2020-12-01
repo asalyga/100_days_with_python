@@ -1,11 +1,10 @@
-import random
-import gameassets
+import random,day_6_assets
 game = True
 lives = 6
-chosen_word = random.choice(gameassets.word_list)
+chosen_word = random.choice(day_6_assets.word_list)
 display = ["_" for i in chosen_word]
 print("Welcome to hangman")
-print(gameassets.logo)
+print(day_6_assets.logo)
 print(display)
 while game:
     guess = input("Your letter: ").lower()
@@ -27,4 +26,4 @@ while game:
         print("You win!")
         game = False
 
-    print(gameassets.stages[lives])
+    print(day_6_assets.stages[lives])
