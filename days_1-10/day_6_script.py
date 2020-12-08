@@ -1,4 +1,5 @@
-import random,day_6_assets
+import random
+import day_6_assets
 game = True
 lives = 6
 chosen_word = random.choice(day_6_assets.word_list)
