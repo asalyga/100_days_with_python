@@ -1,18 +1,22 @@
-from day_12_assets import logo,vs, data
+from day_12_assets import logo, vs, data
 import random, os
+
+
 def clear_screen():
     os.system('cls||clear')
+
 
 score = 0
 game_on = True
 account_b = random.choice(data)
 
+
 def format_data(account):
     """Formatting the account data """
-    return (f"{account['name']}, a {account['description']}, from {account['country']}.")
+    return f"{account['name']}, a {account['description']}, from {account['country']}."
 
 
-### Use If statement to check if user is correct.
+# Use If statement to check if user is correct.
 def check_answer(user_input, follower_count_a, follower_count_b):
     """Takes user guess and accounts and returns if they got it right"""
     if follower_count_a > follower_count_b:
@@ -32,7 +36,6 @@ while game_on:
     while account_a == account_b:
         account_b = random.choice(data)
 
-
     # Format account data into printable format
     print(f"Compare A: {format_data(account_a)}")
     print(vs)
@@ -40,9 +43,8 @@ while game_on:
     # Ask user for a guess
     user_answer = input("Who has more followers? Type 'A' or 'B' :").lower()
 
-
     # Check if user is correct.
-    ## Get follower count of each account
+    # Get follower count of each account
     follower_count_a = account_a['follower_count']
     follower_count_b = account_b['follower_count']
 
@@ -53,16 +55,10 @@ while game_on:
     print(logo)
 
     # Give user feedback on the guess
-    ## Keep score
+    # Keep score
     if is_correct:
         score += 1
         print(f"You're right! Current score: {score}.")
     else:
         game_on = False
         print(f"Sorry, that's the wrong answer. Final score {score}.")
-
-
-
-
-
-            
