@@ -1,5 +1,7 @@
+import os
+import random
+
 from day_12_assets import logo, vs, data
-import random, os
 
 
 def clear_screen():
