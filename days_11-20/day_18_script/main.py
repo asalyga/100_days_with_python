@@ -1,5 +1,7 @@
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
+from food import Food
+from scoreboard import Scoreboard
 import time
 import random
 
@@ -15,6 +17,8 @@ screen.title("Sneaky snake")
 segments = []
 
 snake = Snake()
+food = Food()
+scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -26,5 +30,25 @@ while game_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    # Collision with food
+    if snake.head.distance(food) < 15:
+        food.refresh()
+        snake.extend()
+        scoreboard.increase()
+
+    # Collision with wall
+    if snake.head.xcor() > 290 or snake.head.ycor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() < -290:
+        game_on = False
+        scoreboard.end_game()
+
+    # Collision with tail
+    for segment in snake.segments:
+        if segment == snake.head:
+            pass
+        elif snake.head.distance(segment) < 10:
+            game_on = False
+            scoreboard.end_game()
+
 
 screen.exitonclick()
