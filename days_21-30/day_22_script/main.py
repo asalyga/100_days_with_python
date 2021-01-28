@@ -7,5 +7,5 @@ with open("input/Names/invited_names.txt") as names:
     for name in names:
         name = name.strip()
         letter = starting_letter.replace("[name]", name)
-        with open(f"output/ReadyToSend/{name}.txt", mode='w') as done:
+        with open(f"output/ReadyToSend/letter_for_{name}.txt", mode='w') as done:
             done.write(letter)
