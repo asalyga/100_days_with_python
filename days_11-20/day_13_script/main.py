@@ -1,4 +1,4 @@
-from day_13_assets import resources, MENU
+from assets import resources, MENU
 
 
 def update_resources(drink):
